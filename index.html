@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // URL se card ka number (id) nikaalne ke liye
+        const urlParams = new URLSearchParams(window.location.search);
+        const cardId = urlParams.get('id');
+
+        // Shuruat mein yeh google.com par jayega, baad mein aap yahan link badlenge 👇
+        let destination = "https://google.com"; 
+
+        if (cardId === "1") {
+            destination = "https://google.com"; // Pehle customer ka link baad mein yahan paste hoga
+        } else if (cardId === "2") {
+            destination = "https://google.com"; // Doosre customer ka link yahan paste hoga
+        } else if (cardId === "3") {
+            destination = "https://google.com"; // Teeshre customer ka link yahan paste hoga
+        }
+
+        // Automatic Bina Kisi Button Ke Redirect Karne Ke Liye
+        window.location.href = destination;
+    </script>
+</head>
+<body>
+    <p>Redirecting to business page...</p>
+</body>
+</html>
