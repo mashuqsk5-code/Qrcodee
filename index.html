@@ -2,22 +2,21 @@
 <html>
 <head>
     <script>
+        // URL se card ka number (id) nikaalne ke liye
         const urlParams = new URLSearchParams(window.location.search);
         const cardId = urlParams.get('id');
 
-        // Yahan aap saare clients ke links ek choti si list (dictionary) mein save kar sakte hain
-        const database = {
-            "1": "https://shhd745954-cmyk.github.io/Review/?name=My%20Business&g=https://search.google.com/local/writereview?placeid=ChIJl5rG3rhZNDoRqfi5I-qH_mA&wa=https://wa.me/qr/VXEESEVHMUERB1&ig=https://instagram.com
-",
-            "2": "https://g.page/r/example-client-2",
-            "3": "https://g.page/r/example-client-3",
-            // Jaise-jaise naye clients aayein, yahan unki ID aur link add karte jayein
-        };
+        // Default link agar id match na ho
+        let destination = "https://google.com"; 
 
-        // Agar ID database mein milti hai wahan bhejo, warna default Google par
-        let destination = database[cardId] || "https://google.com";
+        // Yahan apni ID aur apna review page link check karein
+        if (cardId === "1") {
+            destination = "https://shhd745954-cmyk.github.io/Review/?name=...&g=...&wa=...&ig=..."; 
+        } else if (cardId === "2") {
+            destination = "https://google.com"; 
+        }
 
-        // Redirect
+        // Automatic Redirect
         window.location.href = destination;
     </script>
 </head>
