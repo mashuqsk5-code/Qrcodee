@@ -2,22 +2,21 @@
 <html>
 <head>
     <script>
-        // URL se card ka number (id) nikaalne ke liye
         const urlParams = new URLSearchParams(window.location.search);
         const cardId = urlParams.get('id');
 
-        // Shuruat mein yeh google.com par jayega, baad mein aap yahan link badlenge 👇
-        let destination = "https://google.com"; 
+        // Yahan aap saare clients ke links ek choti si list (dictionary) mein save kar sakte hain
+        const database = {
+            "1": "https://maps.app.goo.gl/SyACHk4BcmBTZtKk6",
+            "2": "https://g.page/r/example-client-2",
+            "3": "https://g.page/r/example-client-3",
+            // Jaise-jaise naye clients aayein, yahan unki ID aur link add karte jayein
+        };
 
-        if (cardId === "1") {
-            destination = "https://maps.app.goo.gl/SyACHk4BcmBTZtKk6"; // Pehle customer ka link baad mein yahan paste hoga
-        } else if (cardId === "2") {
-            destination = "https://google.com"; // Doosre customer ka link yahan paste hoga
-        } else if (cardId === "3") {
-            destination = "https://google.com"; // Teeshre customer ka link yahan paste hoga
-        }
+        // Agar ID database mein milti hai wahan bhejo, warna default Google par
+        let destination = database[cardId] || "https://google.com";
 
-        // Automatic Bina Kisi Button Ke Redirect Karne Ke Liye
+        // Redirect
         window.location.href = destination;
     </script>
 </head>
